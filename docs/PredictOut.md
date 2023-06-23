@@ -1,0 +1,14 @@
+# PredictOut
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**x** | **dict(str, str)** |  | [optional] 
+**y** | **str** |  | [optional] 
+**score** | **float** |  | [optional] 
+**proba** | **float** |  | [optional] 
+**explanation** | **str** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
