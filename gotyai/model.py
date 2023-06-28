@@ -1,14 +1,14 @@
 from typing import Dict, List
 import uuid
 
-import openapi_client
-from openapi_client.apis.tags import classify_api
-from openapi_client.model.classifier_out import ClassifierOut
-from openapi_client.model.classifier_spec_in import ClassifierSpecIn
-from openapi_client.model.batch_fit_in import BatchFitIn
-from openapi_client.model.fit_in import FitIn
-from openapi_client.model.predict_in import PredictIn
-from openapi_client.model.predict_out import PredictOut
+import gotyai_client
+from gotyai_client.apis.tags import classify_api
+from gotyai_client.model.classifier_out import ClassifierOut
+from gotyai_client.model.classifier_spec_in import ClassifierSpecIn
+from gotyai_client.model.batch_fit_in import BatchFitIn
+from gotyai_client.model.fit_in import FitIn
+from gotyai_client.model.predict_in import PredictIn
+from gotyai_client.model.predict_out import PredictOut
 
 BASE_URL = 'http://ns3044521.ip-91-121-222.eu:8080/gotyai'
 X_API_KEY = '<X_API_KEY>'
@@ -16,12 +16,12 @@ X_API_KEY = '<X_API_KEY>'
 
 class GotyaiNB:
     def __init__(self, categories: List[str]):
-        self._configuration = openapi_client.Configuration(
+        self._configuration = gotyai_client.Configuration(
             host=BASE_URL
         )
         self._configuration.api_key['api_key'] = X_API_KEY
 
-        with openapi_client.ApiClient(self._configuration) as api_client:
+        with gotyai_client.ApiClient(self._configuration) as api_client:
             api_instance = classify_api.ClassifyApi(api_client)
 
             api_response: ClassifierOut = api_instance.multinomial_create(
@@ -44,7 +44,7 @@ class GotyaiNB:
         if len(features) != len(targets):
             raise 'dimensions of features and targets are not equal'
 
-        with openapi_client.ApiClient(self._configuration) as api_client:
+        with gotyai_client.ApiClient(self._configuration) as api_client:
             api_instance = classify_api.FitMany(api_client)
 
             for features_batch, targets_batch in self._batching(features, targets, size=100):
@@ -63,7 +63,7 @@ class GotyaiNB:
                 )
 
     def predict(self, x) -> str:
-        with openapi_client.ApiClient(self._configuration) as api_client:
+        with gotyai_client.ApiClient(self._configuration) as api_client:
             api_instance = classify_api.PredictOne(api_client)
 
             api_response: PredictOut = api_instance.predict_one(
