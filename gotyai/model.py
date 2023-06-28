@@ -11,7 +11,7 @@ from gotyai_client.model.predict_in import PredictIn
 from gotyai_client.model.predict_out import PredictOut
 
 BASE_URL = 'http://ns3044521.ip-91-121-222.eu:8080/gotyai'
-X_API_KEY = '<X_API_KEY>'
+X_API_KEY = '12c87b63238c65f334ac61788903cd75'
 
 
 class GotyaiNB:
