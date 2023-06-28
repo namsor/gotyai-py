@@ -7,7 +7,6 @@ from sklearn.pipeline import Pipeline
 from gotyai.NaiveBayesClassifier import NaiveBayesClassifier
 from gotyai.Discretizer import Discretizer
 from gotyai.NaiveBayesPreprocessor import NaiveBayesPreprocessor
-
 winedata = pd.read_csv('./datasets/Wine_Quality_Data.csv')
 print(winedata.shape)
 print('-'*30)
@@ -33,4 +32,4 @@ for train_index, test_index in rs.split(X):
         est.fit(X_train, y_train)
         scores[key].append(est.score(X_test, y_test))
 
-pd.DataFrame(scores)
+print(pd.DataFrame(scores))

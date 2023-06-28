@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 
 class NaiveBayesClassifier(object):
 
@@ -28,12 +29,12 @@ class NaiveBayesClassifier(object):
         self.groups = X.groupby(y)
         self.log_likelihoods = {
             fld: self.get_log_likelihoods(fld)
-            for fld, series in X.iteritems()
+            for fld, series in X.items()
         }
 
     def get_approx_log_posterior(self, series, class_):
         log_posterior = self.class_log_priors[class_]  # prior
-        for fld, val in series.iteritems():
+        for fld, val in series.items():
             # there are cases where the `val` is not seen before
             # as in having a `nan` in the scoring dataset,
             #   but no `nans in the training set

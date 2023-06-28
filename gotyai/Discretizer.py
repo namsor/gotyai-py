@@ -2,6 +2,7 @@ from operator import itemgetter
 from bisect import bisect_right
 
 import numpy as np
+import pandas as pd
 
 
 class Discretizer(object):

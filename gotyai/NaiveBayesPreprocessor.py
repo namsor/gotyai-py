@@ -39,7 +39,7 @@ class NaiveBayesPreprocessor(object):
         """
         # get dtypes
         self.dtypes = defaultdict(set)
-        for fld, dtype in X_orig.dtypes.iteritems():
+        for fld, dtype in X_orig.dtypes.items():
             self.dtypes[dtype].add(fld)
 
         X = X_orig
@@ -47,7 +47,7 @@ class NaiveBayesPreprocessor(object):
         # get transfs
         self.transformations = {
             fld: self.learn_transf(series)
-            for fld, series in X.iteritems()}
+            for fld, series in X.items()}
 
     def transform(self, X_orig, y=None):
         """
