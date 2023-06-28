@@ -1,5 +1,5 @@
-# gotyai-client
-Gotyai API : the Spartan explainable AI 
+# gotyai-py
+Gotyai API : the Spartan explainable AI (demo)
 
 ## Requirements.
 
@@ -25,21 +25,7 @@ Then import the package:
 import gotyai_client 
 ```
 
-### Setuptools
-
-Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
-
-```sh
-python setup.py install --user
-```
-(or `sudo python setup.py install` to install the package for all users)
-
-Then import the package:
-```python
-import gotyai_client
-```
-
-## Getting Started
+## Getting Started with the demo
 Check the server URL and the API Key in gotyai/model.py, then run the demo:
 ```sh
 python main.py
